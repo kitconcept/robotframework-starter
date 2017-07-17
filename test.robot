@@ -19,7 +19,7 @@ Scenario: Open Headless Browser
 Open Headless Browser
   ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
   Call Method  ${options}  add_argument  headless
-  Call Method  ${options}  add_argument  disable-extensions
+  Call Method  ${options}  add_argument  disable-gpu
   Call Method  ${options}  add_argument  disable-web-security
   Call Method  ${options}  add_argument  window-size\=1280,1024
   # Call Method  ${options}  add_argument  remote-debugging-port\=9223
