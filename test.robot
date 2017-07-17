@@ -9,9 +9,9 @@ Test Teardown   Close Browser
 *** Test Cases ***
 
 Scenario: Open Headless Browser
-  Go To  https://kitconcept.com
-  Wait until page contains  kitconcept
-  Page should contain  kitconcept
+  Go To  https://google.com
+  Wait until page contains  Google
+  Page should contain  Google
 
 
 *** Keywords ***
