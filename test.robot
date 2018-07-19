@@ -1,6 +1,6 @@
 *** Settings ***
 
-Library         Selenium2Library  timeout=10  implicit_wait=0
+Library         SeleniumLibrary  timeout=10  implicit_wait=0
 
 Test Setup      Open Headless Browser
 Test Teardown   Close Browser
