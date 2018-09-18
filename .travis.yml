@@ -18,4 +18,4 @@ script:
   - pybot test.robot
 notifications:
   email:
-    - stollenwerk@kitconcept.com
+    - boly38@gmail.com
