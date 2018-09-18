@@ -1,4 +1,13 @@
 .py27
+# IDE
+.idea/
+
+# shell results
+.requirements_checked
+chromedriver.exe
+chromedriver_*
+# robotf results
 log.html
 output.xml
 report.html
+selenium-screenshot*
