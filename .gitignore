@@ -6,6 +6,7 @@
 .requirements_checked
 chromedriver.exe
 chromedriver_*
+acceptance/vars/__pycache__
 # robotf results
 log.html
 output.xml

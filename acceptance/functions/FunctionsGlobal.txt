@@ -1,0 +1,5 @@
+*** Keywords ***
+
+!Go To GeoKrety
+    Open Browser    ${GK_URL}    ${BROWSER}
+    Location Should Contain    ${GK_URL}

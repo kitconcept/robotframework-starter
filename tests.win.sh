@@ -3,6 +3,8 @@
 # assume python/pip is already installed
 
 # config
+ENV=rec
+CHROMEDRIVER_VERSION=2.42
 CHROMEDRIVER_FILE=chromedriver_win32.zip
 CHROMEDRIVER_BIN=chromedriver.exe
 REQUIREMENT_CHECK=.requirements_checked
@@ -12,8 +14,8 @@ if [ -f ${REQUIREMENT_CHECK} ]; then
 else
   echo " * Requirement Chromedriver"
   if [ ! -f ${CHROMEDRIVER_FILE} ]; then
-    echo "Download $CHROMEDRIVER_FILE"
-    curl https://chromedriver.storage.googleapis.com/2.42/chromedriver_win32.zip --output chromedriver_win32.zip
+    echo "Download ${CHROMEDRIVER_FILE} (${CHROMEDRIVER_VERSION})"
+    curl https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${CHROMEDRIVER_FILE} --output ${CHROMEDRIVER_FILE}
     if [ ! -f ${CHROMEDRIVER_BIN} ]; then
       unzip ${CHROMEDRIVER_FILE}
     fi
@@ -26,5 +28,10 @@ else
   touch ${REQUIREMENT_CHECK}
 fi
 
-echo " * Execute robot framework tests"
-pybot.bat acceptance/test_welcome.robot
+echo " * Execute robot framework tests (env=${ENV})"
+ENV_VARS_FILE=acceptance/vars/${ENV}-dev.py
+if [ ! -f ${ENV_VARS_FILE} ]; then
+  echo "unable to load env ${ENV}: ${ENV_VARS_FILE} doesn't exist"
+  exit 1;
+fi
+pybot.bat -V ${ENV_VARS_FILE} acceptance/test_welcome.robot

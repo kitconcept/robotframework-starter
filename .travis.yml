@@ -17,7 +17,7 @@ before_script:
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
 script:
-  - pybot acceptance/test_welcome.robot
+  - pybot -Vacceptance/vars/rec-dev.py acceptance/test_welcome.robot
 notifications:
   email:
     - boly38@gmail.com

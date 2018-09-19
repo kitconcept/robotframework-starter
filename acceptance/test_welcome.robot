@@ -1,15 +1,14 @@
 *** Settings ***
 
 Library         SeleniumLibrary  timeout=10  implicit_wait=0
-
-Test Setup      Test Setup
+Resource        functions/FunctionsGlobal.txt
 Test Teardown   Close Browser
 
 
 *** Test Cases ***
 
-Scenario: Should Show Geokrety English Welcome page
-  Go To  https://rec.geokrety.org
+Scenario: Geokrety Welcome page (EN)
+  !Go To GeoKrety
   Wait Until Page Contains  Welcome
   Should Show Welcome Geokrety
   Should Show News
@@ -19,8 +18,6 @@ Scenario: Should Show Geokrety English Welcome page
 
 *** Keywords ***
 
-Test Setup
-  Open browser  browser=headlesschrome  url=https://google.com
 Should Show Welcome Geokrety
   Page should contain  Welcome to GeoKrety.org!
 Should Show News
