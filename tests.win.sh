@@ -34,4 +34,5 @@ if [ ! -f ${ENV_VARS_FILE} ]; then
   echo "unable to load env ${ENV}: ${ENV_VARS_FILE} doesn't exist"
   exit 1;
 fi
-pybot.bat -V ${ENV_VARS_FILE} acceptance/test_welcome.robot
+rm -f selenium-screenshot-*.png
+pybot.bat -V ${ENV_VARS_FILE} acceptance/GK_welcome.robot
